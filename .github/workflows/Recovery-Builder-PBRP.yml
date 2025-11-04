@@ -130,7 +130,7 @@ jobs:
         echo "date=$(date +%Y%m%d)" >> $GITHUB_OUTPUT
       
     - name: Upload to Release
-      uses: ncipollo/release-action@v1.11.1
+      uses: ncipollo/release-action@main
       with:
         artifacts: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.MANIFEST_BRANCH }}*.img
         name: Unofficial PBRP for ${{ github.event.inputs.DEVICE_NAME }} - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
