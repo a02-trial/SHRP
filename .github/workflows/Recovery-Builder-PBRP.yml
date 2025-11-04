@@ -129,12 +129,6 @@ jobs:
       run: |
         echo "date=$(date +%Y%m%d)" >> $GITHUB_OUTPUT
       
-    - name: Renaming into PBRP
-      run: |
-        cd out/target/product/${{ github.event.inputs.DEVICE_NAME }}
-        mv vendor_boot.img ${{ github.event.inputs.MANIFEST_BRANCH }}-3.7.0-${{ github.event.inputs.DEVICE_NAME }}-${{ steps.props.outputs.date }}.img
-      working-directory: ${{ steps.pwd.outputs.workdir }}
-      
     - name: Upload to Release
       uses: ncipollo/release-action@v1.11.1
       with:
